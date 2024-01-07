@@ -1,0 +1,4 @@
+Contact: https://twitter.com/h1_sp1d3r
+Acknowledgements: https://xp.ht/acknowledgements/
+In-scope: xp.ht
+Out-of-Scope: any domain/subdomain/VirtualHost other than xp.ht - some subdomains were created for the testing/challenges, so you can easily find for example, XSS there, still, if you will be able to demonstrate the POC affecting xpoc.pro (not related to the setting cookies via XSS), or accessing sensitive info, we want to hear about it; SPF/DMARC issues, Text Injection, missing security headers, CORS misconfiguration (without POC)
