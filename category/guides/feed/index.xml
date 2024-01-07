@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Guides &#8211; Sp1d3R&#039;s security blog</title>
+	<atom:link href="/category/guides/feed/" rel="self" type="application/rss+xml" />
+	<link>/</link>
+	<description>&#34;I accidentally broke it.&#34;</description>
+	<lastBuildDate>Sat, 15 Feb 2020 09:52:45 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.4.2</generator>
+	<item>
+		<title>Improving your success as  bug bounty hunter</title>
+		<link>/improving-your-success-as-security-researcher-and-bug-bounty-hunter/</link>
+		
+		<dc:creator><![CDATA[Sp1d3R]]></dc:creator>
+		<pubDate>Tue, 28 Nov 2017 13:21:14 +0000</pubDate>
+				<category><![CDATA[Guides]]></category>
+		<guid isPermaLink="false">https://xpoc.pro/?p=177</guid>
+
+					<description><![CDATA[The big count of the bug bounty hunters usually does not care about their report quality. I was no exception. I started my work on the HackerOne platform at the end of the October 2016. Actually, I registered there in the May 2016, but was busy with startup and forgot about it (I worked as <a class="read-more" href="/improving-your-success-as-security-researcher-and-bug-bounty-hunter/">&#8230;&#160;<span class="meta-nav">&#8594;</span></a>]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>
