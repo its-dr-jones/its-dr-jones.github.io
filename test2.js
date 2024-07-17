@@ -1,5 +1,5 @@
 const iframe = document.createElement('iframe');
-        iframe.src = '/';
+        iframe.src = 'https://partner.visa.com/';
         document.body.appendChild(iframe);
         iframe.onload = function() {
             const iframeWindow = iframe.contentWindow;
