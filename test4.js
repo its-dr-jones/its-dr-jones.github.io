@@ -1,5 +1,5 @@
 const iframe = document.createElement('iframe');
-        iframe.src = 'https://partner.visa.com/';
+        iframe.src = '/assets/css/vdc-header-footer.css';
         document.body.appendChild(iframe);
         iframe.onload = function() {
             const iframeWindow = iframe.contentWindow;
