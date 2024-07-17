@@ -6,7 +6,7 @@ const iframe = document.createElement('iframe');
             iframeWindow.fetch('/vdp-api/v3/users/me')
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Fetch result from iframe:', data);
+                    alert("Your SSO Token: "+JSON.stringify(data.ssoToken));
                 })
                 .catch(error => {
                     console.error('Error fetching data from iframe:', error);
