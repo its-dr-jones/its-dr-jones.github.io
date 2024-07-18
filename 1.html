@@ -1,7 +1,8 @@
 <a href="#" onclick='window.open("https://sso.niantic.kidswebservices.com/en/login?clientId=pokemon-go&redirectUri=https:%2F%2Fsignin.nianticlabs.com%2Fsuperawesome%2Fcallback&hideSignUp=true&automaticActivation=false&loginConfirmed=true")'>Click</a>
 <script>
    window.addEventListener('message', (event) => {
-      if (event.origin)
-      alert('Message received: ' + event.data.code);
+      const data = JSON.parse(event.data);
+       if (data && data.code) {
+            alert('Code received from child: ' + data.code);
     });
 </script>
