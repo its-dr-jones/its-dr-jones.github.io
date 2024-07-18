@@ -2,6 +2,6 @@
 <script>
    window.addEventListener('message', (event) => {
       if (event.origin === 'https://sso.niantic.kidswebservices.com')
-      alert('Message received: ' + event.data);
+      alert('Message received: ' + event.data.code);
     });
 </script>
