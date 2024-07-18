@@ -2,7 +2,7 @@
 <script>
    window.addEventListener('message', (event) => {
       const data = JSON.parse(event.data);
-       if (data && data.code) {
+       if (data && data.code)
             alert('Code received from child: ' + data.code);
     });
 </script>
