@@ -3,8 +3,10 @@ info:
   version: "100500"
   title: KEK
   default: aaaaaaaaaaaaaaaaaaaaaaaa
-  description: Click Terms of Service
-  termsOfService: "javascript:alert(document.domain)"
+  contact: 
+   name: POC
+   url: "javascript:alert(document.domain)"
+   email: "https://google.com"
 paths:
   /:
     get:
