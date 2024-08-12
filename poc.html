@@ -1,15 +1,10 @@
 <script>
-  window.onload = function(event) {
-    alert("Hello!");
-    // Stop the event from bubbling up immediately
-    event.stopImmediatePropagation();
-
-    // Delay the load event by 3 seconds
-    setTimeout(function() {
-        // Manually trigger the load event again
-        var loadEvent = new Event('load');
-        window.dispatchEvent(loadEvent);
-        console.log('Frame loaded after delay');
-    }, 3000);
-};
-</script>
+        window.addEventListener('load', function(event) {
+            alert("Hello!");
+            event.stopImmediatePropagation();
+            setTimeout(function() {
+                console.log('Child page fully loaded after delay');
+                window.dispatchEvent(new Event('load'));
+            }, 3000);
+        });
+    </script>
