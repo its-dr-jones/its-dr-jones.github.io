@@ -1,10 +1,9 @@
 <script>
         window.addEventListener('load', function(event) {
-            alert("Hello!");
             event.stopImmediatePropagation();
             setTimeout(function() {
                 console.log('Child page fully loaded after delay');
                 window.dispatchEvent(new Event('load'));
-            }, 3000);
+            }, 10000);
         });
     </script>
