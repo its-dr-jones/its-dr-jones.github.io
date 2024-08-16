@@ -1,1 +1,95 @@
-<a href="https://ext-am-sbx.am.commercecloud.salesforce.com/apex%25252fd%252f%2e%252f%2e%2e%252f%2e\..\dwsso/saml2/jsp/exportmetadata.jsp">click</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .upload-container {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 50px;
+            background-color: white;
+            text-align: center;
+            width: 300px;
+        }
+
+        .upload-container.dragover {
+            border-color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .upload-container img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .upload-container p {
+            margin: 0;
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="upload-container" id="drop-zone">
+        <img id="preview" src="" alt="Image preview">
+        <p>Drag and drop an image here</p>
+    </div>
+
+    <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data" style="display:none;">
+        <input type="file" id="file-input" name="file" style="display:none;">
+    </form>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const preview = document.getElementById('preview');
+        const uploadForm = document.getElementById('upload-form');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+
+            const files = e.dataTransfer.files;
+            if (files.length && files[0].type.startsWith('image/')) {
+                fileInput.files = files;
+                const reader = new FileReader();
+
+                reader.onload = (event) => {
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+
+                reader.readAsDataURL(files[0]);
+                uploadForm.submit();
+            } else {
+                alert('Please drop an image file.');
+            }
+        });
+    </script>
+
+</body>
+</html>
