@@ -137,7 +137,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14
 
 
 
-<p>There was no any output besides the error that parameter is wrong with HTTP code 403. Very often in such case, I&#8217;m starting to fuzz all the things so I started to play with the parameter. After some time, looking the results, I noticed interesting behavior: ${7*7} returned 500 error. It looked very promising so I started to do the generic Java EL Injection tests (I was pretty confident that backend runs Java so didn&#8217;t try other template injection tests first).<br></p>
+<p>There was no any output besides the error that parameter is wrong with HTTP code 403. Very often in such case, I&#8217;m starting to fuzz all the things so I started to play with the parameter. After some time, looking the results, I noticed interesting behavior: ${7*7} response was abit different. It looked very promising so I started to do the generic Java EL Injection tests (I was pretty confident that backend runs Java so didn&#8217;t try other template injection tests first).<br></p>
 <pre>${7*7} - 403<br>${2+2} - 403<br>${""} - 403<br>${test}} - 500 (bad payload)<br></pre>So far so good. How about calling some method?<br><pre>${"".getClass()} - 404</pre>
 <br>Wat. It&#8217;s something new! I was excited, but as appeared, there was a lot of pain and going the wrong direction ahead. I mistakenly thought that  ${&#8220;&#8221;.getClass()} worked, however it was not a case. As appeared after hours of trying different methods/classes, I started from beginning and figured that ${7*7.1} returned the same 404 code. <br>I was disappointed a little and very close to accept this as false-positive but decided to continue on the next day.
 
